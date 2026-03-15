@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appoline MVP</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="top-bar">
+        <div>
+          <p class="eyebrow">Appoline</p>
+          <h1>Speak naturally. Connect confidently.</h1>
+        </div>
+        <button id="dailyChallengeBtn" class="ghost-btn">Daily Challenge</button>
+      </header>
+
+      <section class="stats-grid">
+        <article class="card">
+          <p>Streak</p>
+          <h2><span id="streak">0</span> days 🔥</h2>
+        </article>
+        <article class="card">
+          <p>XP</p>
+          <h2><span id="xp">0</span></h2>
+        </article>
+        <article class="card">
+          <p>Confidence</p>
+          <h2><span id="confidence">50</span>%</h2>
+        </article>
+      </section>
+
+      <section class="card mode-card">
+        <h3>Choose your mode</h3>
+        <div class="chips" id="modeChips">
+          <button data-mode="romantic" class="chip active">Romantic</button>
+          <button data-mode="humor" class="chip">Humor</button>
+          <button data-mode="charisma" class="chip">Charisma</button>
+        </div>
+        <p id="modeDescription" class="mode-description"></p>
+      </section>
+
+      <section class="card mission-card">
+        <h3>Today's Mission</h3>
+        <p id="missionText"></p>
+        <div class="button-row">
+          <button id="startMissionBtn" class="primary-btn">Start 3-min practice</button>
+          <button id="testApiBtn" class="ghost-btn">Test Chat API</button>
+        </div>
+      </section>
+
+      <section class="card chat-card">
+        <h3>Conversation</h3>
+        <div id="chatWindow" class="chat-window" aria-live="polite"></div>
+        <form id="chatForm" class="chat-form">
+          <input
+            id="userInput"
+            type="text"
+            placeholder="Type what you'd say..."
+            autocomplete="off"
+            required
+          />
+          <button id="sendBtn" type="submit" class="primary-btn">Send</button>
+        </form>
+        <div class="button-row">
+          <button id="speakLastBtn" class="ghost-btn">🔊 Speak last reply</button>
+          <button id="clearChatBtn" class="ghost-btn">Clear chat</button>
+        </div>
+        <p id="statusText" class="status-text">Ready.</p>
+      </section>
+
+      <section class="card feedback-card">
+        <h3>Session Feedback</h3>
+        <ul id="feedbackList"></ul>
+      </section>
+    </div>
+
+    <template id="messageTemplate">
+      <div class="message">
+        <p class="role"></p>
+        <p class="text"></p>
+      </div>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
